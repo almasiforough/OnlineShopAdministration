@@ -1,0 +1,9 @@
+{"customer":[["Id","InvoiceId","InvoiceNumber","Total Fee","Postcode","Address","CustomerName"]
+[32,411,511,500,3205,"306/28 bank street","Olivia Smith"],
+[33,412,512,700,3057,"brunswick east","Ava Anderson"],
+[34,413,513,300,3006,"153/88 southbank Blvd","Henry Walker"],
+[35,414,514,550,3141,"8 Garden st, South Yarra bank street","Sara Taylor"],
+[36,415,515,1300,1312,"100 Swan St,Richmond","Thomas King"],
+[37,416,516,1800,3109,"Celest St,Doncaster East","Emily Lee"],
+[38,417,517,900,3109,"Beverley St,Doncaster East","Lucas Brown"],
+[39,418,518,6100,3109,"29/1 Meryl St,Doncaster East","Aria Wilson"]]}

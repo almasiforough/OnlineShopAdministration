@@ -1,0 +1,94 @@
+{
+ "customer":[
+  {
+   "receiptId":"411",
+   "receiptNumber":"511",
+   "totalFee":"500",
+   "postcode":"3205",
+   "address":"306/28 bank street",
+   "map":"true",
+   "customerName":"Olivia Smith"
+ },
+ {
+  "receiptId":412,
+  "receiptNumber":512,
+  "totalFee":700,
+  "postcode":3205,
+  "address":"306/28 southbank",
+  "map":"true",
+  "customerName":"Ava Anderson"
+ },
+ {
+  "receiptId":413,
+  "receiptNumber":513,
+  "totalFee":300,
+  "postcode":3205,
+  "address":"306/28 bank street",
+  "map":"true",
+  "customerName":"Henry Walker"
+  },
+  {
+  "receiptId":414,
+  "receiptNumber":514,
+  "totalFee":550,
+  "postcode":3205,
+  "address":"306/28 bank street",
+  "map":"true",
+  "customerName":"Sara Taylor"
+ },
+{
+"receiptId":415,
+"receiptNumber":515,
+"totalFee":1300,
+"postcode":3205,
+"address":"306/28 bank street",
+"map":"true",
+"customerName":"Thomas King"
+},
+{
+"receiptId":416,
+"receiptNumber":516,
+"totalFee":1800,
+"postcode":3205,
+"address":"306/28 bank street",
+"map":"true",
+"customerName":"Emily Lee"
+},
+{
+"receiptId":417,
+"receiptNumber":517,
+"totalFee":900,
+"postcode":3205,
+"address":"306/28 bank street",
+"map":"true",
+"customerName":"Lucas Brown"
+},
+{
+"receiptId":418,
+"receiptNumber":518,
+"totalFee":6100,
+"postcode":3205,
+"address":"306/28 bank street",
+"map":"true",
+"customerName":"Aria Wilson"
+},
+{
+"receiptId":419,
+"receiptNumber":519,
+"totalFee":900,
+"postcode":3205,
+"address":"306/28 bank street",
+"map":"true",
+"customerName":"Jack Williams"
+},
+{
+"receiptId":420,
+"receiptNumber":520,
+"totalFee":650,
+"postcode":3205,
+"address":"306/28 bank street",
+"map":"true",
+"customerName":"Ella Anderson"
+}
+]
+}
