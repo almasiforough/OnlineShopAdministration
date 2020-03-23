@@ -22,11 +22,6 @@ class map extends React.Component {
       },
       trackUserLocation: true
     }));
-    this.finalCoordinates = this.props.Coordinates.map(item => {
-      var coord = { 'latitude': item[0], longitude: item[1] }
-      return coord;
-    })
-
     map.on('draw.create', this.updat);
   }
   updat=(e)=> {
@@ -42,6 +37,10 @@ class map extends React.Component {
     )
   }
   handleButtonClick=()=> {
+    this.finalCoordinates = this.props.Coordinates.map(item => {
+      var coord = { 'latitude': item[0], longitude: item[1] }
+      return coord;
+    })
     var PolygonPoints = this.finalCoordinates.filter(item => {
       if (geolib.isPointInPolygon(item, this.state.PolygonCoordinates) === true) {
         return item

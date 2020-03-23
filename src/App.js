@@ -56,12 +56,7 @@ class App extends React.Component {
 
   createCoordinates = (data) => {
     let Coordinates = [];
-    Coordinates = data.map(item => {
-      return (
-        item[7]
-      )
-    }
-    )
+    Coordinates = data.map(item => item[7])
     return Coordinates;
   }
   changFlag = (bool) => {
