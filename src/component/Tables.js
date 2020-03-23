@@ -3,29 +3,18 @@ import ShowPanel from './ShowPannel';
 import DeliveredOrders from './DeliveredOrders';
 let PanelHeader, DelivereddHeader;
 class Tables extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+    state = {
       PanelHeadercolumns: [],
       PanelDatacolumns: this.props.Datacolumns,
       DeliveredHeaderColumns: [],
       DeliveredDataColumns: []
-    }
-    this.creatPanelHeader = this.creatPanelHeader.bind(this);
-    this.creatDeliveredHeader = this.creatDeliveredHeader.bind(this);
-    this.RemovePanelRow = this.RemovePanelRow.bind(this);
-    this.RemoveDeliveredRow = this.RemoveDeliveredRow.bind(this);
-    this.addRowToDelivered = this.addRowToDelivered.bind(this);
-    this.addRowToPannel = this.addRowToPannel.bind(this);
-    this.findRow = this.findRow.bind(this);
-    this.setDatacolumn = this.setDatacolumn.bind(this);
   }
-  findRow(id) {
-    var row = this.state.PanelDatacolumns.find(element => element.Id == id)
+  findRow=(id)=> {
+    var row = this.state.PanelDatacolumns.find(element => element.Id === id)
     return row
   }
 
-  creatPanelHeader() {
+  creatPanelHeader=()=> {
     let Column = [
       {
         name: "Id",
@@ -70,13 +59,12 @@ class Tables extends React.Component {
           this.RemovePanelRow(row.Id)
         }}>
           <i className="material-icons">add_circle_outline</i>
-          {/* <image src={bimage}/> */}
           </button>,
       }
     ];
     return Column;
   }
-  creatDeliveredHeader() {
+  creatDeliveredHeader=()=> {
     let Column = [
       {
         name: "Id",
@@ -125,29 +113,29 @@ class Tables extends React.Component {
     return Column;
   }
 
-  RemovePanelRow(id) {
+  RemovePanelRow=(id)=> {
     this.setState(prevstat => {
-      let newstate = prevstat.PanelDatacolumns.filter(item => item.Id != id)
+      let newstate = prevstat.PanelDatacolumns.filter(item => item.Id !== id)
       return ({ PanelDatacolumns: newstate })
     }
     )
   }
-  RemoveDeliveredRow(id) {
+  RemoveDeliveredRow=(id)=> {
     this.setState(prevstat => {
-      const newstate = prevstat.DeliveredDataColumns.filter(item => item.Id != id)
+      const newstate = prevstat.DeliveredDataColumns.filter(item => item.Id !== id)
       return ({ DeliveredDataColumns: newstate })
     }
     )
   }
-  addRowToDelivered(row) {
+  addRowToDelivered=(row)=> {
     this.setState(prevState => { return ({ DeliveredDataColumns: [...prevState.DeliveredDataColumns, row] }) }
     )
   }
-  addRowToPannel(row) {
+  addRowToPannel=(row)=> {
     this.setState(prevState => { return ({ PanelDatacolumns: [...prevState.PanelDatacolumns, row] }) }
     )
   }
-  componentDidMount() {
+  componentDidMount=()=> {
     PanelHeader = this.creatPanelHeader();
     DelivereddHeader = this.creatDeliveredHeader();
     this.creatDeliveredHeader();
@@ -158,14 +146,14 @@ class Tables extends React.Component {
       }
     )
   }
-  setDatacolumn(){
+  setDatacolumn=()=>{
     this.setState(
       {
         PanelDatacolumns: this.props.Datacolumns
       }
     )
   }
-  render() {
+  componentDidUpdate=()=>{
     if (this.props.Flag) {
       this.setDatacolumn();
       this.props.handler(false);
@@ -178,6 +166,8 @@ class Tables extends React.Component {
       });
       this.props.setPolygonFlag();
     }
+  }
+  render() {
     return (
       <div>
         <ShowPanel

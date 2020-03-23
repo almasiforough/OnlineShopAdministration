@@ -1,8 +1,6 @@
 import React from "react";
 import Tables from './component/Tables'
-// import ShowPanel from './component/ShowPannel';
 import Map from './component/map'
-import ReactMapGL from 'react-map-gl';
 class App extends React.Component {
 
   state = {
@@ -64,8 +62,6 @@ class App extends React.Component {
       )
     }
     )
-    console.log("Coordinates", Coordinates);
-
     return Coordinates;
   }
   changFlag = (bool) => {
