@@ -114,6 +114,7 @@ class Tables extends React.Component {
   }
 
   RemovePanelRow=(id)=> {
+    this.props.setPolygonPoints(id);
     this.setState(prevstat => {
       let newstate = prevstat.PanelDatacolumns.filter(item => item.Id !== id)
       return ({ PanelDatacolumns: newstate })
@@ -126,6 +127,7 @@ class Tables extends React.Component {
       return ({ DeliveredDataColumns: newstate })
     }
     )
+    this.props.ResetPolygonPoints(id);
   }
   addRowToDelivered=(row)=> {
     this.setState(prevState => { return ({ DeliveredDataColumns: [...prevState.DeliveredDataColumns, row] }) }

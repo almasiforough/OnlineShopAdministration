@@ -9,6 +9,8 @@ class App extends React.Component {
     Coordinates: [],
     PolygonId: [],
     PolygonFlag: false,
+    Data:[],
+    UnchangeData:[],
     viewport: {
       width: 800,
       height: 400,
@@ -30,7 +32,8 @@ class App extends React.Component {
         Datacolumns: this.Data,
         Flag: true,
         Coordinates: this.Coordinates,
-        Data: jasonObj.customer
+        Data: jasonObj.customer,
+        UnchangeData:jasonObj.customer
       })
     }
   }
@@ -63,14 +66,35 @@ class App extends React.Component {
     this.setState(
       { Flag: bool }
     )
-
-
   }
   setPolygonId = (id) => {
+    let Data=this.state.Data.filter(item=>!id.includes(item[0]));
+    let Coordinates=Data.map(item=>item[7]);
     this.setState({
       PolygonId: id,
-      PolygonFlag: true
+      PolygonFlag: true,
+      Data:Data,
+      Coordinates:Coordinates
     })
+  }
+  setPolygonPoints = (id) => {
+    let Data=this.state.Data.filter(item=>id!==item[0]);
+    let Coordinates=Data.map(item=>item[7]);
+    this.setState({
+      Data:Data,
+      Coordinates:Coordinates
+    })
+  }
+  ResetPolygonPoints=(id)=>{
+    let Data=this.state.UnchangeData.filter(item=>id===item[0]);
+    let TempCoordinate=Data[0][7];
+    this.setState(prevstat =>{
+      return({
+        Data:[...prevstat.Data,...Data],
+        Coordinates:[...prevstat.Coordinates,TempCoordinate]
+      })
+    })
+    
   }
   setPolygonFlag = () => {
     this.setState(
@@ -81,7 +105,6 @@ class App extends React.Component {
     this.loadTable();
   }
   render() {
-
     return (
       <div>
         <Map Coordinates={this.state.Coordinates}
@@ -93,7 +116,10 @@ class App extends React.Component {
           handler={this.changFlag}
           PolygonId={this.state.PolygonId}
           setPolygonFlag={this.setPolygonFlag}
-          PolygonFlag={this.state.PolygonFlag} />
+          PolygonFlag={this.state.PolygonFlag}
+          setPolygonPoints={this.setPolygonPoints}
+          ResetPolygonPoints={this.ResetPolygonPoints}
+           />
 
       </div>
     )
