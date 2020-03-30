@@ -27,7 +27,7 @@ class map extends React.Component {
   updat=(e)=> {
     this.PCoordinates = e.features[0].geometry.coordinates[0];
     this.finalPcoordinates = this.PCoordinates.map(item => {
-      var coord = { 'latitude': item[0], longitude: item[1] }
+      let coord = { 'latitude': item[0], longitude: item[1] }
       return coord;
     })
     this.setState(
@@ -38,15 +38,15 @@ class map extends React.Component {
   }
   handleButtonClick=()=> {
     this.finalCoordinates = this.props.Coordinates.map(item => {
-      var coord = { 'latitude': item[0], longitude: item[1] }
+      let coord = { 'latitude': item[0], longitude: item[1] }
       return coord;
     })
-    var PolygonPoints = this.finalCoordinates.filter(item => {
+    let PolygonPoints = this.finalCoordinates.filter(item => {
       if (geolib.isPointInPolygon(item, this.state.PolygonCoordinates) === true) {
         return item
       }
     })
-    var FindArray = [];
+    let FindArray = [];
     PolygonPoints.forEach(element => {
       this.props.Data.find(item => {
         if (item[7][0] === element.latitude && item[7][1] === element.longitude) {
@@ -58,7 +58,7 @@ class map extends React.Component {
   }
   changeCoordinatesToObject=()=> {
     this.finalPcoordinates = this.PCoordinates.map(item => {
-      var coord = { 'latitude': item[0], longitude: item[1] }
+      let coord = { 'latitude': item[0], longitude: item[1] }
       return coord;
     })
     return this.finalPcoordinates

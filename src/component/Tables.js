@@ -10,7 +10,7 @@ class Tables extends React.Component {
       DeliveredDataColumns: []
   }
   findRow=(id)=> {
-    var row = this.state.PanelDatacolumns.find(element => element.Id === id)
+    let row = this.state.PanelDatacolumns.find(element => element.Id === id)
     return row
   }
 
@@ -162,7 +162,7 @@ class Tables extends React.Component {
     }
     if (this.props.PolygonId.length > 0 && this.props.PolygonFlag) {
       this.props.PolygonId.forEach(element => {
-        var row = this.findRow(element);
+        let row = this.findRow(element);
         this.RemovePanelRow(element);
         this.addRowToDelivered(row)
       });
