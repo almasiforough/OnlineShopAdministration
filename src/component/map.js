@@ -41,14 +41,11 @@ class map extends React.Component {
       let coord = { 'latitude': item[0], longitude: item[1] }
       return coord;
     })
-    let PolygonPoints = this.finalCoordinates.filter(item => {
-      if (geolib.isPointInPolygon(item, this.state.PolygonCoordinates) === true) {
-        return item
-      }
-    })
+    let PolygonPoints = this.finalCoordinates.filter(item =>geolib.isPointInPolygon(item, this.state.PolygonCoordinates) === true
+    )
     let FindArray = [];
     PolygonPoints.forEach(element => {
-      this.props.Data.find(item => {
+      this.props.Data.forEach(item => {
         if (item[7][0] === element.latitude && item[7][1] === element.longitude) {
           FindArray.push(item[0]);
         }
