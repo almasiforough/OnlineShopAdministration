@@ -18,14 +18,34 @@ class App extends React.Component {
     }
   }
   loadTable() {
+
     let jasonObj;
-    let requestURL = 'https://api.myjson.com/bins/dig0m'
-    let request = new XMLHttpRequest();
-    request.open('GET', requestURL);
-    request.responseType = 'json';
-    request.send();
-    request.onload = () => {
-      jasonObj = request.response;
+    // let requestURL = 'https://api.myjson.com/bins/dig0m'
+    // let request = new XMLHttpRequest();
+    // request.open('GET', requestURL);
+    // request.responseType = 'json';
+    // request.send();
+    // request.onload = () => {
+    //   jasonObj = request.response;
+    //   this.Data = this.createData(jasonObj.customer);
+    //   this.Coordinates = this.createCoordinates(jasonObj.customer);
+    //   this.setState({
+    //     Datacolumns: this.Data,
+    //     Flag: true,
+    //     Coordinates: this.Coordinates,
+    //     Data: jasonObj.customer,
+    //     UnchangeData:jasonObj.customer
+    //   })
+    //}
+    jasonObj ={"customer":[
+      [32,411,511,500,3205,"306/28 bank street","Olivia Smith",[144.969262,-37.831504]],
+    [33,412,512,700,3057,"brunswick east","Ava Anderson",[144.975234,-37.768504]],
+    [34,413,513,300,3006,"153/88 southbank Blvd","Henry Walker",[144.964714,-37.822837]],
+    [35,414,514,550,3141,"8 Garden st, South Yarra bank street","Sara Taylor",[144.961083,-37.833968]],
+    [36,415,515,1300,1312,"100 Swan St,Richmond","Thomas King",[144.993316,-37.825208]],
+    [37,416,516,1800,3109,"Celest St,Doncaster East","Emily Lee",[145.152167,-37.785907]],
+    [38,417,517,900,3109,"Beverley St,Doncaster East","Lucas Brown",[ 145.161570,-37.790986]],
+    [39,418,518,6100,3109,"29/1 Meryl St,Doncaster East","Aria Wilson",[ 145.150030,-37.794956]]]};
       this.Data = this.createData(jasonObj.customer);
       this.Coordinates = this.createCoordinates(jasonObj.customer);
       this.setState({
@@ -35,9 +55,11 @@ class App extends React.Component {
         Data: jasonObj.customer,
         UnchangeData:jasonObj.customer
       })
-    }
+
   }
   createData = (data) => {
+    console.log(data);
+    
     let Data = [];
     Data = data.map(item => {
       return (
@@ -54,6 +76,7 @@ class App extends React.Component {
       )
     }
     )
+    console.log(Data)
     return Data;
   }
 
